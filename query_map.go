@@ -34,11 +34,11 @@ func SqlInjection(sql string) error {
 	return nil
 }
 
-func (db *DB) SqlQuery(sql string) (string error) {
+func (db *DB) SqlQuery(sql string) (string, error) {
 	err := SqlInjection(sql)
 	if err != nil {
-		return err
+		return "", err
 	}
 	db.DB.Ping()
-	return nil
+	return "pss", nil
 }
