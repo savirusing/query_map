@@ -7,8 +7,8 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-type Database struct {
-	DB *sqlx.DB
+type DB struct {
+	*sqlx.DB
 }
 
 func SqlInjection(sql string) error {
@@ -34,7 +34,7 @@ func SqlInjection(sql string) error {
 	return nil
 }
 
-func (db Database) SqlQuery(sql string) (string error) {
+func (db *DB) SqlQuery(sql string) (string error) {
 	err := SqlInjection(sql)
 	if err != nil {
 		return err
