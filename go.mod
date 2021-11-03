@@ -1,4 +1,4 @@
-module query_map
+module github.com/savirusing/query_map
 
 go 1.17
 
